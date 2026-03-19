@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "request_callbacks",
+  "info": {
+    "singularName": "request-callback",
+    "pluralName": "request-callbacks",
+    "displayName": "Request Callback"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Phone": {
+      "type": "string"
+    }
+  }
+}

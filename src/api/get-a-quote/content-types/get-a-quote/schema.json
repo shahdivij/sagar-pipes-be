@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "get_a_quotes",
+  "info": {
+    "singularName": "get-a-quote",
+    "pluralName": "get-a-quotes",
+    "displayName": "Get a Quote"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "email"
+    },
+    "Phone": {
+      "type": "string"
+    }
+  }
+}

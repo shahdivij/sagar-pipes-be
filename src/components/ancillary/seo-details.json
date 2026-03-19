@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_ancillary_seo_details",
+  "info": {
+    "displayName": "SEODetails",
+    "icon": "bell"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "MetaImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Schema": {
+      "type": "json"
+    },
+    "geo_block": {
+      "type": "json"
+    }
+  },
+  "config": {}
+}

@@ -15,10 +15,15 @@
     "upgrade:dry": "npx @strapi/upgrade latest --dry"
   },
   "dependencies": {
+    "@ckeditor/strapi-plugin-ckeditor": "^1.1.2",
+    "@sklinet/strapi-plugin-tinymce": "^1.1.8",
     "@strapi/plugin-cloud": "5.38.0",
     "@strapi/plugin-users-permissions": "5.38.0",
+    "@strapi/provider-upload-aws-s3": "^5.39.0",
     "@strapi/strapi": "5.38.0",
+    "@tinymce/tinymce-react": "^6.3.0",
     "better-sqlite3": "12.4.1",
+    "dotenv": "^17.3.1",
     "pg": "^8.20.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",

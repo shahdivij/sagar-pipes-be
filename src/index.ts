@@ -1,5 +1,5 @@
 // import type { Core } from '@strapi/strapi';
-
+require("dotenv").config();
 export default {
   /**
    * An asynchronous register function that runs before

@@ -1,0 +1,75 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Product"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "SEODetails": {
+      "type": "component",
+      "component": "ancillary.seo-details",
+      "repeatable": false
+    },
+    "Name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "Name"
+    },
+    "main": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "background": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "product_category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product-category.product-category",
+      "inversedBy": "products"
+    },
+    "Description": {
+      "type": "customField",
+      "customField": "plugin::tinymce.tinymce"
+    },
+    "Features": {
+      "type": "customField",
+      "customField": "plugin::tinymce.tinymce"
+    },
+    "Applications": {
+      "type": "customField",
+      "customField": "plugin::tinymce.tinymce"
+    },
+    "TechnicalDetails": {
+      "type": "customField",
+      "customField": "plugin::tinymce.tinymce"
+    },
+    "benefits": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::benefit.benefit",
+      "mappedBy": "products"
+    }
+  }
+}
