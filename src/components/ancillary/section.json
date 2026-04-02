@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_ancillary_sections",
+  "info": {
+    "displayName": "section"
+  },
+  "options": {},
+  "attributes": {
+    "preHeading": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "button": {
+      "type": "component",
+      "component": "ancillary.button",
+      "repeatable": true
+    },
+    "bgcolor": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

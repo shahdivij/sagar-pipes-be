@@ -1,0 +1,62 @@
+{
+  "kind": "singleType",
+  "collectionName": "product_homes",
+  "info": {
+    "singularName": "product-home",
+    "pluralName": "product-homes",
+    "displayName": "Product Home"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "SEODetails": {
+      "type": "component",
+      "component": "ancillary.seo-details",
+      "repeatable": false
+    },
+    "mainContent": {
+      "type": "dynamiczone",
+      "components": [
+        "ancillary.section"
+      ]
+    },
+    "productProcess": {
+      "type": "component",
+      "component": "ancillary.product-process",
+      "repeatable": true
+    },
+    "processCarousel": {
+      "type": "component",
+      "component": "ancillary.process-carousel",
+      "repeatable": true
+    },
+    "commitments": {
+      "type": "dynamiczone",
+      "components": [
+        "ancillary.section"
+      ]
+    },
+    "otherApplications": {
+      "type": "component",
+      "component": "ancillary.other-applications",
+      "repeatable": true
+    },
+    "ProductCollection": {
+      "type": "component",
+      "component": "ancillary.product-category-collection",
+      "repeatable": false
+    },
+    "categoryCarousel": {
+      "type": "component",
+      "component": "ancillary.category-carousel",
+      "repeatable": false
+    },
+    "modal": {
+      "type": "component",
+      "component": "ancillary.modal",
+      "repeatable": false
+    }
+  }
+}

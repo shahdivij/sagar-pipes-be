@@ -23,7 +23,7 @@
       "type": "uid",
       "targetField": "Name"
     },
-    "main": {
+    "bannerImage": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
@@ -33,7 +33,7 @@
         "audios"
       ]
     },
-    "background": {
+    "thumbnail": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
@@ -42,6 +42,12 @@
         "videos",
         "audios"
       ]
+    },
+    "benefits": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::benefit.benefit",
+      "mappedBy": "products"
     },
     "product_category": {
       "type": "relation",
@@ -49,27 +55,50 @@
       "target": "api::product-category.product-category",
       "inversedBy": "products"
     },
-    "Description": {
+    "ProductPageBuilder": {
+      "type": "dynamiczone",
+      "components": [
+        "ancillary.section"
+      ]
+    },
+    "Accessories": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "TechnicalSpecs": {
       "type": "customField",
       "customField": "plugin::tinymce.tinymce"
     },
-    "Features": {
-      "type": "customField",
-      "customField": "plugin::tinymce.tinymce"
+    "ContactUsCopy": {
+      "type": "component",
+      "component": "ancillary.section",
+      "repeatable": false
     },
-    "Applications": {
-      "type": "customField",
-      "customField": "plugin::tinymce.tinymce"
+    "ExploreMore": {
+      "type": "component",
+      "component": "ancillary.explore-more",
+      "repeatable": false
     },
-    "TechnicalDetails": {
-      "type": "customField",
-      "customField": "plugin::tinymce.tinymce"
+    "ProductGallery": {
+      "type": "component",
+      "component": "ancillary.product-gallery",
+      "repeatable": true
     },
-    "benefits": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::benefit.benefit",
-      "mappedBy": "products"
+    "onHoverImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }

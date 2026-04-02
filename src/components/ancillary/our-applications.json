@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_ancillary_our_applications",
+  "info": {
+    "displayName": "Our Applications"
+  },
+  "options": {},
+  "attributes": {
+    "preHeading": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "string"
+    },
+    "mainText": {
+      "type": "string"
+    },
+    "text": {
+      "type": "component",
+      "component": "ancillary.text",
+      "repeatable": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

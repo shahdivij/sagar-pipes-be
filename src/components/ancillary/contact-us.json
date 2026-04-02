@@ -1,0 +1,43 @@
+{
+  "collectionName": "components_ancillary_contact_uses",
+  "info": {
+    "displayName": "Contact Us"
+  },
+  "options": {},
+  "attributes": {
+    "officeHeading": {
+      "type": "string"
+    },
+    "officeAddress": {
+      "type": "text"
+    },
+    "officeMapUrl": {
+      "type": "string"
+    },
+    "phoneHeading": {
+      "type": "string"
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "faxHeading": {
+      "type": "string"
+    },
+    "faxNumber": {
+      "type": "string"
+    },
+    "emailHeading": {
+      "type": "string"
+    },
+    "emailAddress": {
+      "type": "email"
+    },
+    "webHeading": {
+      "type": "string"
+    },
+    "webUrl": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

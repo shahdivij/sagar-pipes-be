@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_ancillary_product_galleries",
+  "info": {
+    "displayName": "Product Gallery"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

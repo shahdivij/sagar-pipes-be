@@ -1,0 +1,74 @@
+{
+  "kind": "singleType",
+  "collectionName": "home1s",
+  "info": {
+    "singularName": "home1",
+    "pluralName": "home1s",
+    "displayName": "home1"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "SEODetails": {
+      "type": "component",
+      "component": "ancillary.seo-details",
+      "repeatable": false
+    },
+    "mainContent": {
+      "type": "dynamiczone",
+      "components": [
+        "ancillary.section"
+      ]
+    },
+    "brandMessages": {
+      "type": "dynamiczone",
+      "components": [
+        "ancillary.section"
+      ]
+    },
+    "aboutUs": {
+      "type": "dynamiczone",
+      "components": [
+        "ancillary.section"
+      ]
+    },
+    "trustMarkers": {
+      "type": "dynamiczone",
+      "components": [
+        "ancillary.section"
+      ]
+    },
+    "Industries": {
+      "type": "component",
+      "component": "ancillary.industries",
+      "repeatable": true
+    },
+    "ProductCarousel": {
+      "type": "component",
+      "component": "ancillary.products",
+      "repeatable": true
+    },
+    "ourApplications": {
+      "type": "component",
+      "component": "ancillary.our-applications",
+      "repeatable": false
+    },
+    "testimonials": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::testimonial.testimonial"
+    },
+    "faq": {
+      "type": "component",
+      "component": "ancillary.faq",
+      "repeatable": true
+    },
+    "productCategorySection": {
+      "type": "component",
+      "component": "ancillary.product-category-section",
+      "repeatable": false
+    }
+  }
+}

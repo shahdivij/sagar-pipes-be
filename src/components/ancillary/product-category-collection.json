@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_ancillary_product_category_collections",
+  "info": {
+    "displayName": "ProductCategoryCollection",
+    "icon": "arrowUp"
+  },
+  "options": {},
+  "attributes": {
+    "PreHeading": {
+      "type": "text"
+    },
+    "Heading": {
+      "type": "text"
+    },
+    "Button": {
+      "type": "component",
+      "component": "ancillary.button",
+      "repeatable": false
+    },
+    "product_categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-category.product-category"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product"
+    }
+  },
+  "config": {}
+}

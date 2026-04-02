@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_ancillary_product_processes",
+  "info": {
+    "displayName": "Product Process"
+  },
+  "options": {},
+  "attributes": {
+    "preHeading": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "string"
+    },
+    "stepNo": {
+      "type": "integer"
+    },
+    "mainText": {
+      "type": "string"
+    },
+    "text": {
+      "type": "component",
+      "component": "ancillary.text",
+      "repeatable": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

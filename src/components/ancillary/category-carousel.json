@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_ancillary_category_carousels",
+  "info": {
+    "displayName": "Category Carousel"
+  },
+  "options": {},
+  "attributes": {
+    "product_categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-category.product-category"
+    }
+  },
+  "config": {}
+}

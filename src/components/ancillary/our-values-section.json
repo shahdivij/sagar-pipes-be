@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_ancillary_our_values_sections",
+  "info": {
+    "displayName": "Our Values Section"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "ourValues": {
+      "type": "component",
+      "component": "ancillary.our-values-pointers",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

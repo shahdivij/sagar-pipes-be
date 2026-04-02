@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_ancillary_why_us_sections",
+  "info": {
+    "displayName": "Why Us Section"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "whyUsPointers": {
+      "type": "component",
+      "component": "ancillary.why-us-pointers",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

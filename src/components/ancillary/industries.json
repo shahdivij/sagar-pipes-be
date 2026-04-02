@@ -1,0 +1,54 @@
+{
+  "collectionName": "components_ancillary_industries",
+  "info": {
+    "displayName": "Industries",
+    "icon": "archive"
+  },
+  "options": {},
+  "attributes": {
+    "IndustryName": {
+      "type": "string"
+    },
+    "ProductName": {
+      "type": "string"
+    },
+    "IndustryDescription": {
+      "type": "customField",
+      "customField": "plugin::tinymce.tinymce"
+    },
+    "IndustryVideo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "ProductImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product"
+    },
+    "product_category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product-category.product-category"
+    },
+    "ButtonText": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

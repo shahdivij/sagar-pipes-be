@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_ancillary_texts",
+  "info": {
+    "displayName": "Text"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

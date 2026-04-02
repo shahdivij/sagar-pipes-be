@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_ancillary_explore_mores",
+  "info": {
+    "displayName": "Explore More"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product"
+    },
+    "button": {
+      "type": "component",
+      "component": "ancillary.button",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_ancillary_other_applications",
+  "info": {
+    "displayName": "Other Applications"
+  },
+  "options": {},
+  "attributes": {
+    "industry": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "buttonURL": {
+      "type": "string"
+    },
+    "video": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

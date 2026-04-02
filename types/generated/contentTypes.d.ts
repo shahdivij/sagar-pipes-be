@@ -430,6 +430,53 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
+  collectionName: 'about_uses';
+  info: {
+    displayName: 'About Us';
+    pluralName: 'about-uses';
+    singularName: 'about-us';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::about-us.about-us'
+    > &
+      Schema.Attribute.Private;
+    mainContent: Schema.Attribute.DynamicZone<
+      ['ancillary.section', 'ancillary.text']
+    >;
+    newsroom: Schema.Attribute.Component<'ancillary.newsroom', true>;
+    ourHistory: Schema.Attribute.Component<
+      'ancillary.our-history-section',
+      false
+    >;
+    ourValuesSection: Schema.Attribute.Component<
+      'ancillary.our-values-section',
+      false
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    SEODetails: Schema.Attribute.Component<'ancillary.seo-details', false>;
+    testimonials: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::testimonial.testimonial'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    whatDoWeDo: Schema.Attribute.Component<'ancillary.what-do-we-do', false>;
+    whyChooseUs: Schema.Attribute.Component<'ancillary.why-choose-us', false>;
+    whyUs: Schema.Attribute.Component<'ancillary.why-us-section', false>;
+  };
+}
+
 export interface ApiBenefitBenefit extends Struct.CollectionTypeSchema {
   collectionName: 'benefits';
   info: {
@@ -453,6 +500,7 @@ export interface ApiBenefitBenefit extends Struct.CollectionTypeSchema {
       'api::benefit.benefit'
     > &
       Schema.Attribute.Private;
+    popupIcon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     products: Schema.Attribute.Relation<'manyToMany', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
     Title: Schema.Attribute.String;
@@ -497,6 +545,37 @@ export interface ApiCareerCareer extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCareersPageCareersPage extends Struct.SingleTypeSchema {
+  collectionName: 'careers_pages';
+  info: {
+    displayName: 'Careers Page';
+    pluralName: 'careers-pages';
+    singularName: 'careers-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    careerDescription: Schema.Attribute.RichText;
+    contactUs: Schema.Attribute.Component<'ancillary.contact-us', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::careers-page.careers-page'
+    > &
+      Schema.Attribute.Private;
+    mainContent: Schema.Attribute.Component<'ancillary.section', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    SEODetails: Schema.Attribute.Component<'ancillary.seo-details', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGetAQuoteGetAQuote extends Struct.CollectionTypeSchema {
   collectionName: 'get_a_quotes';
   info: {
@@ -527,6 +606,50 @@ export interface ApiGetAQuoteGetAQuote extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiHome1Home1 extends Struct.SingleTypeSchema {
+  collectionName: 'home1s';
+  info: {
+    displayName: 'home1';
+    pluralName: 'home1s';
+    singularName: 'home1';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    aboutUs: Schema.Attribute.DynamicZone<['ancillary.section']>;
+    brandMessages: Schema.Attribute.DynamicZone<['ancillary.section']>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    faq: Schema.Attribute.Component<'ancillary.faq', true>;
+    Industries: Schema.Attribute.Component<'ancillary.industries', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::home1.home1'> &
+      Schema.Attribute.Private;
+    mainContent: Schema.Attribute.DynamicZone<['ancillary.section']>;
+    ourApplications: Schema.Attribute.Component<
+      'ancillary.our-applications',
+      false
+    >;
+    ProductCarousel: Schema.Attribute.Component<'ancillary.products', true>;
+    productCategorySection: Schema.Attribute.Component<
+      'ancillary.product-category-section',
+      false
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    SEODetails: Schema.Attribute.Component<'ancillary.seo-details', false>;
+    testimonials: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::testimonial.testimonial'
+    >;
+    trustMarkers: Schema.Attribute.DynamicZone<['ancillary.section']>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProductCategoryProductCategory
   extends Struct.CollectionTypeSchema {
   collectionName: 'product_categories';
@@ -539,12 +662,18 @@ export interface ApiProductCategoryProductCategory
     draftAndPublish: true;
   };
   attributes: {
-    background: Schema.Attribute.Media<
+    bannerImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    categoryImage: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
+    ContactUsCopy: Schema.Attribute.Component<'ancillary.section', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    ExploreMore: Schema.Attribute.Component<'ancillary.section', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -552,10 +681,78 @@ export interface ApiProductCategoryProductCategory
     > &
       Schema.Attribute.Private;
     Name: Schema.Attribute.String;
+    Name2: Schema.Attribute.String;
+    onHoverImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    OtherApplications: Schema.Attribute.Component<
+      'ancillary.other-applications',
+      true
+    >;
     products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
+    RelatedCollection: Schema.Attribute.Component<
+      'ancillary.product-category-collection',
+      true
+    >;
+    Section2: Schema.Attribute.Component<'ancillary.section', false>;
     SEODetails: Schema.Attribute.Component<'ancillary.seo-details', false>;
+    SliderImages: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
     slug: Schema.Attribute.UID<'Name'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProductHomeProductHome extends Struct.SingleTypeSchema {
+  collectionName: 'product_homes';
+  info: {
+    displayName: 'Product Home';
+    pluralName: 'product-homes';
+    singularName: 'product-home';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    categoryCarousel: Schema.Attribute.Component<
+      'ancillary.category-carousel',
+      false
+    >;
+    commitments: Schema.Attribute.DynamicZone<['ancillary.section']>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-home.product-home'
+    > &
+      Schema.Attribute.Private;
+    mainContent: Schema.Attribute.DynamicZone<['ancillary.section']>;
+    modal: Schema.Attribute.Component<'ancillary.modal', false>;
+    otherApplications: Schema.Attribute.Component<
+      'ancillary.other-applications',
+      true
+    >;
+    processCarousel: Schema.Attribute.Component<
+      'ancillary.process-carousel',
+      true
+    >;
+    ProductCollection: Schema.Attribute.Component<
+      'ancillary.product-category-collection',
+      false
+    >;
+    productProcess: Schema.Attribute.Component<
+      'ancillary.product-process',
+      true
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    SEODetails: Schema.Attribute.Component<'ancillary.seo-details', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -573,36 +770,44 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Applications: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<'plugin::tinymce.tinymce'>;
-    background: Schema.Attribute.Media<
+    Accessories: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    bannerImage: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
     benefits: Schema.Attribute.Relation<'manyToMany', 'api::benefit.benefit'>;
+    ContactUsCopy: Schema.Attribute.Component<'ancillary.section', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<'plugin::tinymce.tinymce'>;
-    Features: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<'plugin::tinymce.tinymce'>;
+    ExploreMore: Schema.Attribute.Component<'ancillary.explore-more', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::product.product'
     > &
       Schema.Attribute.Private;
-    main: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     Name: Schema.Attribute.String;
+    onHoverImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     product_category: Schema.Attribute.Relation<
       'manyToOne',
       'api::product-category.product-category'
     >;
+    ProductGallery: Schema.Attribute.Component<
+      'ancillary.product-gallery',
+      true
+    >;
+    ProductPageBuilder: Schema.Attribute.DynamicZone<['ancillary.section']>;
     publishedAt: Schema.Attribute.DateTime;
     SEODetails: Schema.Attribute.Component<'ancillary.seo-details', false>;
     slug: Schema.Attribute.UID<'Name'>;
-    TechnicalDetails: Schema.Attribute.RichText &
+    TechnicalSpecs: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<'plugin::tinymce.tinymce'>;
+    thumbnail: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -636,6 +841,38 @@ export interface ApiRequestCallbackRequestCallback
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
+  collectionName: 'testimonials';
+  info: {
+    displayName: 'Testimonial';
+    pluralName: 'testimonials';
+    singularName: 'testimonial';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::testimonial.testimonial'
+    > &
+      Schema.Attribute.Private;
+    location: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    topic: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    video: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 
@@ -1150,12 +1387,17 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::benefit.benefit': ApiBenefitBenefit;
       'api::career.career': ApiCareerCareer;
+      'api::careers-page.careers-page': ApiCareersPageCareersPage;
       'api::get-a-quote.get-a-quote': ApiGetAQuoteGetAQuote;
+      'api::home1.home1': ApiHome1Home1;
       'api::product-category.product-category': ApiProductCategoryProductCategory;
+      'api::product-home.product-home': ApiProductHomeProductHome;
       'api::product.product': ApiProductProduct;
       'api::request-callback.request-callback': ApiRequestCallbackRequestCallback;
+      'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

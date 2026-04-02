@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_ancillary_what_do_we_dos",
+  "info": {
+    "displayName": "What Do We Do"
+  },
+  "options": {},
+  "attributes": {
+    "heading1": {
+      "type": "string"
+    },
+    "heading2": {
+      "type": "string"
+    },
+    "mainText": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

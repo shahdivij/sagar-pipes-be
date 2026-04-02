@@ -33,6 +33,16 @@
       "relation": "manyToMany",
       "target": "api::product.product",
       "inversedBy": "benefits"
+    },
+    "popupIcon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }

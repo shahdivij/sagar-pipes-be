@@ -1,0 +1,62 @@
+{
+  "kind": "singleType",
+  "collectionName": "about_uses",
+  "info": {
+    "singularName": "about-us",
+    "pluralName": "about-uses",
+    "displayName": "About Us"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "SEODetails": {
+      "type": "component",
+      "component": "ancillary.seo-details",
+      "repeatable": false
+    },
+    "mainContent": {
+      "type": "dynamiczone",
+      "components": [
+        "ancillary.section",
+        "ancillary.text"
+      ]
+    },
+    "whatDoWeDo": {
+      "type": "component",
+      "component": "ancillary.what-do-we-do",
+      "repeatable": false
+    },
+    "newsroom": {
+      "type": "component",
+      "component": "ancillary.newsroom",
+      "repeatable": true
+    },
+    "whyUs": {
+      "type": "component",
+      "component": "ancillary.why-us-section",
+      "repeatable": false
+    },
+    "whyChooseUs": {
+      "type": "component",
+      "component": "ancillary.why-choose-us",
+      "repeatable": false
+    },
+    "ourValuesSection": {
+      "type": "component",
+      "component": "ancillary.our-values-section",
+      "repeatable": false
+    },
+    "testimonials": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::testimonial.testimonial"
+    },
+    "ourHistory": {
+      "type": "component",
+      "component": "ancillary.our-history-section",
+      "repeatable": false
+    }
+  }
+}

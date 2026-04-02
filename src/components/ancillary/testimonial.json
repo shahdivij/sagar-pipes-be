@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_ancillary_testimonials",
+  "info": {
+    "displayName": "testimonial"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "topic": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

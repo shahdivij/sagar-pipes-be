@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_ancillary_product_category_sections",
+  "info": {
+    "displayName": "Product Category Section"
+  },
+  "options": {},
+  "attributes": {
+    "productCategories": {
+      "type": "component",
+      "component": "ancillary.products",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

@@ -23,7 +23,17 @@
       "type": "uid",
       "targetField": "Name"
     },
-    "background": {
+    "bannerImage": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "categoryImage": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
@@ -33,11 +43,59 @@
         "audios"
       ]
     },
+    "Name2": {
+      "type": "string"
+    },
+    "Section2": {
+      "type": "component",
+      "component": "ancillary.section",
+      "repeatable": false
+    },
+    "SliderImages": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "RelatedCollection": {
+      "type": "component",
+      "component": "ancillary.product-category-collection",
+      "repeatable": true
+    },
+    "ExploreMore": {
+      "type": "component",
+      "component": "ancillary.section",
+      "repeatable": true
+    },
+    "OtherApplications": {
+      "type": "component",
+      "component": "ancillary.other-applications",
+      "repeatable": true
+    },
+    "ContactUsCopy": {
+      "type": "component",
+      "component": "ancillary.section",
+      "repeatable": false
+    },
     "products": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::product.product",
       "mappedBy": "product_category"
+    },
+    "onHoverImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }

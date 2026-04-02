@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_ancillary_our_histories",
+  "info": {
+    "displayName": "Our History"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "year": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_ancillary_why_choose_uses",
+  "info": {
+    "displayName": "Why Choose Us"
+  },
+  "options": {},
+  "attributes": {
+    "preHeading": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "string"
+    },
+    "whyChooseUsPointers": {
+      "type": "component",
+      "component": "ancillary.text",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

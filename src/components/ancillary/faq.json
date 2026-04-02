@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_ancillary_faqs",
+  "info": {
+    "displayName": "faq"
+  },
+  "options": {},
+  "attributes": {
+    "faqLogo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "faqHeading": {
+      "type": "string"
+    },
+    "faqDescription": {
+      "type": "text"
+    },
+    "faqLogoExpanded": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}
