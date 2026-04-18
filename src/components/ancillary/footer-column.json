@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_ancillary_footer_columns",
+  "info": {
+    "displayName": "Footer Column"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "navLink": {
+      "type": "component",
+      "component": "ancillary.nav-link",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

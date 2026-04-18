@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_ancillary_footer_legal_links",
+  "info": {
+    "displayName": "Footer Legal Links"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_ancillary_openings",
+  "info": {
+    "displayName": "Openings"
+  },
+  "options": {},
+  "attributes": {
+    "preHeading": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "string"
+    },
+    "jobs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::job.job"
+    }
+  },
+  "config": {}
+}

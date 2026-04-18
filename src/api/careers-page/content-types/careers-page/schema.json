@@ -21,13 +21,10 @@
       "component": "ancillary.section",
       "repeatable": false
     },
-    "contactUs": {
+    "openingsSection": {
       "type": "component",
-      "component": "ancillary.contact-us",
+      "component": "ancillary.openings",
       "repeatable": false
-    },
-    "careerDescription": {
-      "type": "richtext"
     }
   }
 }

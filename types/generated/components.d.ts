@@ -1,5 +1,18 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface AncillaryAvailableSizesSection extends Struct.ComponentSchema {
+  collectionName: 'components_ancillary_available_sizes_sections';
+  info: {
+    displayName: 'Available Sizes Section';
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'ancillary.button', false>;
+    heading: Schema.Attribute.String;
+    TechnicalSpecs: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<'plugin::tinymce.tinymce'>;
+  };
+}
+
 export interface AncillaryButton extends Struct.ComponentSchema {
   collectionName: 'components_ancillary_buttons';
   info: {
@@ -71,6 +84,28 @@ export interface AncillaryFaq extends Struct.ComponentSchema {
   };
 }
 
+export interface AncillaryFooterColumn extends Struct.ComponentSchema {
+  collectionName: 'components_ancillary_footer_columns';
+  info: {
+    displayName: 'Footer Column';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    navLink: Schema.Attribute.Component<'ancillary.nav-link', true>;
+  };
+}
+
+export interface AncillaryFooterLegalLinks extends Struct.ComponentSchema {
+  collectionName: 'components_ancillary_footer_legal_links';
+  info: {
+    displayName: 'Footer Legal Links';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    url: Schema.Attribute.String;
+  };
+}
+
 export interface AncillaryIndustries extends Struct.ComponentSchema {
   collectionName: 'components_ancillary_industries';
   info: {
@@ -110,6 +145,17 @@ export interface AncillaryModal extends Struct.ComponentSchema {
   };
 }
 
+export interface AncillaryNavLink extends Struct.ComponentSchema {
+  collectionName: 'components_ancillary_nav_links';
+  info: {
+    displayName: 'navLink';
+  };
+  attributes: {
+    text: Schema.Attribute.String;
+    url: Schema.Attribute.String;
+  };
+}
+
 export interface AncillaryNewsroom extends Struct.ComponentSchema {
   collectionName: 'components_ancillary_newsrooms';
   info: {
@@ -123,6 +169,18 @@ export interface AncillaryNewsroom extends Struct.ComponentSchema {
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
+  };
+}
+
+export interface AncillaryOpenings extends Struct.ComponentSchema {
+  collectionName: 'components_ancillary_openings';
+  info: {
+    displayName: 'Openings';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    jobs: Schema.Attribute.Relation<'oneToMany', 'api::job.job'>;
+    preHeading: Schema.Attribute.String;
   };
 }
 
@@ -336,6 +394,18 @@ export interface AncillarySeoDetails extends Struct.ComponentSchema {
   };
 }
 
+export interface AncillarySocials extends Struct.ComponentSchema {
+  collectionName: 'components_ancillary_socials';
+  info: {
+    displayName: 'Socials';
+  };
+  attributes: {
+    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    text: Schema.Attribute.String;
+    url: Schema.Attribute.String;
+  };
+}
+
 export interface AncillaryTestimonial extends Struct.ComponentSchema {
   collectionName: 'components_ancillary_testimonials';
   info: {
@@ -414,14 +484,19 @@ export interface AncillaryWhyUsSection extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'ancillary.available-sizes-section': AncillaryAvailableSizesSection;
       'ancillary.button': AncillaryButton;
       'ancillary.category-carousel': AncillaryCategoryCarousel;
       'ancillary.contact-us': AncillaryContactUs;
       'ancillary.explore-more': AncillaryExploreMore;
       'ancillary.faq': AncillaryFaq;
+      'ancillary.footer-column': AncillaryFooterColumn;
+      'ancillary.footer-legal-links': AncillaryFooterLegalLinks;
       'ancillary.industries': AncillaryIndustries;
       'ancillary.modal': AncillaryModal;
+      'ancillary.nav-link': AncillaryNavLink;
       'ancillary.newsroom': AncillaryNewsroom;
+      'ancillary.openings': AncillaryOpenings;
       'ancillary.other-applications': AncillaryOtherApplications;
       'ancillary.our-applications': AncillaryOurApplications;
       'ancillary.our-history': AncillaryOurHistory;
@@ -436,6 +511,7 @@ declare module '@strapi/strapi' {
       'ancillary.products': AncillaryProducts;
       'ancillary.section': AncillarySection;
       'ancillary.seo-details': AncillarySeoDetails;
+      'ancillary.socials': AncillarySocials;
       'ancillary.testimonial': AncillaryTestimonial;
       'ancillary.text': AncillaryText;
       'ancillary.what-do-we-do': AncillaryWhatDoWeDo;

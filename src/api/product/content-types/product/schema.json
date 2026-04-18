@@ -71,10 +71,6 @@
         "audios"
       ]
     },
-    "TechnicalSpecs": {
-      "type": "customField",
-      "customField": "plugin::tinymce.tinymce"
-    },
     "ContactUsCopy": {
       "type": "component",
       "component": "ancillary.section",
@@ -99,6 +95,16 @@
         "videos",
         "audios"
       ]
+    },
+    "DownloadCatalogue": {
+      "type": "component",
+      "component": "ancillary.button",
+      "repeatable": false
+    },
+    "availableSizes": {
+      "type": "component",
+      "component": "ancillary.available-sizes-section",
+      "repeatable": false
     }
   }
 }

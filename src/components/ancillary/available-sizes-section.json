@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_ancillary_available_sizes_sections",
+  "info": {
+    "displayName": "Available Sizes Section"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "button": {
+      "type": "component",
+      "component": "ancillary.button",
+      "repeatable": false
+    },
+    "TechnicalSpecs": {
+      "type": "customField",
+      "customField": "plugin::tinymce.tinymce"
+    }
+  },
+  "config": {}
+}

@@ -556,8 +556,6 @@ export interface ApiCareersPageCareersPage extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    careerDescription: Schema.Attribute.RichText;
-    contactUs: Schema.Attribute.Component<'ancillary.contact-us', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -568,8 +566,44 @@ export interface ApiCareersPageCareersPage extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     mainContent: Schema.Attribute.Component<'ancillary.section', false>;
+    openingsSection: Schema.Attribute.Component<'ancillary.openings', false>;
     publishedAt: Schema.Attribute.DateTime;
     SEODetails: Schema.Attribute.Component<'ancillary.seo-details', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFooterFooter extends Struct.SingleTypeSchema {
+  collectionName: 'footers';
+  info: {
+    displayName: 'Footer';
+    pluralName: 'footers';
+    singularName: 'footer';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    copyrightText: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    legalLinks: Schema.Attribute.Component<
+      'ancillary.footer-legal-links',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::footer.footer'
+    > &
+      Schema.Attribute.Private;
+    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    navGroup: Schema.Attribute.Component<'ancillary.footer-column', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    socials: Schema.Attribute.Component<'ancillary.socials', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -599,6 +633,41 @@ export interface ApiGetAQuoteGetAQuote extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     Name: Schema.Attribute.String;
     Phone: Schema.Attribute.String;
+    product: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiHeaderHeader extends Struct.SingleTypeSchema {
+  collectionName: 'headers';
+  info: {
+    displayName: 'Header';
+    pluralName: 'headers';
+    singularName: 'header';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ctaButton: Schema.Attribute.Component<'ancillary.button', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::header.header'
+    > &
+      Schema.Attribute.Private;
+    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    navLink: Schema.Attribute.Component<'ancillary.nav-link', true>;
+    product_categories: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-category.product-category'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -609,7 +678,7 @@ export interface ApiGetAQuoteGetAQuote extends Struct.CollectionTypeSchema {
 export interface ApiHome1Home1 extends Struct.SingleTypeSchema {
   collectionName: 'home1s';
   info: {
-    displayName: 'home1';
+    displayName: 'Home';
     pluralName: 'home1s';
     singularName: 'home1';
   };
@@ -647,6 +716,40 @@ export interface ApiHome1Home1 extends Struct.SingleTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiJobJob extends Struct.CollectionTypeSchema {
+  collectionName: 'jobs';
+  info: {
+    displayName: 'Job';
+    pluralName: 'jobs';
+    singularName: 'job';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'ancillary.button', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    department: Schema.Attribute.String;
+    employmentType: Schema.Attribute.String;
+    experience: Schema.Attribute.String;
+    jobSpecification: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::job.job'> &
+      Schema.Attribute.Private;
+    location: Schema.Attribute.String;
+    primaryResponsibility: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    salary: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    workPlace: Schema.Attribute.String;
   };
 }
 
@@ -774,6 +877,10 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
+    availableSizes: Schema.Attribute.Component<
+      'ancillary.available-sizes-section',
+      false
+    >;
     bannerImage: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
@@ -782,6 +889,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    DownloadCatalogue: Schema.Attribute.Component<'ancillary.button', false>;
     ExploreMore: Schema.Attribute.Component<'ancillary.explore-more', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -805,8 +913,6 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     SEODetails: Schema.Attribute.Component<'ancillary.seo-details', false>;
     slug: Schema.Attribute.UID<'Name'>;
-    TechnicalSpecs: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<'plugin::tinymce.tinymce'>;
     thumbnail: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -838,6 +944,41 @@ export interface ApiRequestCallbackRequestCallback
     Name: Schema.Attribute.String;
     Phone: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiStaticPageStaticPage extends Struct.CollectionTypeSchema {
+  collectionName: 'static_pages';
+  info: {
+    displayName: 'Static Page';
+    pluralName: 'static-pages';
+    singularName: 'static-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    BannerImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    Content: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<'plugin::tinymce.tinymce'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Heading: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::static-page.static-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    SEODetails: Schema.Attribute.Component<'ancillary.seo-details', false>;
+    Slug: Schema.Attribute.UID<'Heading'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1391,12 +1532,16 @@ declare module '@strapi/strapi' {
       'api::benefit.benefit': ApiBenefitBenefit;
       'api::career.career': ApiCareerCareer;
       'api::careers-page.careers-page': ApiCareersPageCareersPage;
+      'api::footer.footer': ApiFooterFooter;
       'api::get-a-quote.get-a-quote': ApiGetAQuoteGetAQuote;
+      'api::header.header': ApiHeaderHeader;
       'api::home1.home1': ApiHome1Home1;
+      'api::job.job': ApiJobJob;
       'api::product-category.product-category': ApiProductCategoryProductCategory;
       'api::product-home.product-home': ApiProductHomeProductHome;
       'api::product.product': ApiProductProduct;
       'api::request-callback.request-callback': ApiRequestCallbackRequestCallback;
+      'api::static-page.static-page': ApiStaticPageStaticPage;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

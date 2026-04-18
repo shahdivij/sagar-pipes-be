@@ -19,6 +19,9 @@
     },
     "Phone": {
       "type": "string"
+    },
+    "product": {
+      "type": "string"
     }
   }
 }
