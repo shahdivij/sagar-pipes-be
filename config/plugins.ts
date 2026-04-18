@@ -5,29 +5,24 @@ export default ({ env }) => {
       config: {
         editor: {
           outputFormat: "html",
+          tinymceSrc: "/tinymce/js/tinymce/tinymce.min.js",
           editorConfig: {
             height: 500,
             menubar: false,
-
             valid_elements: "*[*]",
-            extended_valid_elements: "*[*]",
-            valid_children:
-              "+body[style],+div[div|p|h1|h2|h3|h4|h5|h6|ul|ol|li|table|thead|tbody|tr|td|th]",
-
+            extended_valid_elements: true,
+            valid_children: "*[*]",
             convert_urls: false,
             entity_encoding: "raw",
-
             plugins:
               "advlist autolink lists link image charmap preview anchor \
-searchreplace visualblocks code fullscreen table emoticons nonbreaking \
-insertdatetime media table code help wordcount",
-
+                            searchreplace visualblocks code fullscreen table emoticons nonbreaking \
+                            insertdatetime media table code help wordcount",
             toolbar:
               "undo redo | styles link | bold italic forecolor backcolor | \
-alignleft aligncenter alignright alignjustify | \
-image media table emoticons visualblocks code | \
-nonbreaking bullist numlist outdent indent | searchreplace removeformat | help",
-
+                            alignleft aligncenter alignright alignjustify | \
+                            image media table emoticons visualblocks code|\
+                            nonbreaking bullist numlist outdent indent | searchreplace removeformat | help",
             style_formats: [
               {
                 title: "Headings",
@@ -56,7 +51,7 @@ nonbreaking bullist numlist outdent indent | searchreplace removeformat | help",
       },
     },
 
-/*    upload: {
+    /*    upload: {
      config: {
         provider: "aws-s3",
         providerOptions: {
