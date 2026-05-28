@@ -222,7 +222,8 @@ export interface AncillaryOurHistory extends Struct.ComponentSchema {
     displayName: 'Our History';
   };
   attributes: {
-    description: Schema.Attribute.Text;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<'plugin::tinymce.tinymce'>;
     heading: Schema.Attribute.String;
     image: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',

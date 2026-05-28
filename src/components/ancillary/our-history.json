@@ -9,7 +9,8 @@
       "type": "string"
     },
     "description": {
-      "type": "text"
+      "type": "customField",
+      "customField": "plugin::tinymce.tinymce"
     },
     "image": {
       "type": "media",
