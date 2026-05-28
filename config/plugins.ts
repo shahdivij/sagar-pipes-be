@@ -1,4 +1,41 @@
 export default ({ env }) => {
+  const uploadMaxFileSizeMb = env.int("UPLOAD_MAX_FILE_SIZE_MB", 250);
+  const s3Enabled = env.bool("AWS_S3_ENABLED", false);
+
+  const uploadConfig = s3Enabled
+    ? {
+        provider: "aws-s3",
+        providerOptions: {
+          ...(env("AWS_BASE_URL") ? { baseUrl: env("AWS_BASE_URL") } : {}),
+          rootPath: env("AWS_S3_PREFIX", ""),
+          s3Options: {
+            ...(env("AWS_ACCESS_KEY_ID") &&
+            (env("AWS_ACCESS_SECRET") || env("AWS_SECRET_ACCESS_KEY"))
+              ? {
+                  credentials: {
+                    accessKeyId: env("AWS_ACCESS_KEY_ID"),
+                    secretAccessKey:
+                      env("AWS_ACCESS_SECRET") || env("AWS_SECRET_ACCESS_KEY"),
+                  },
+                }
+              : {}),
+            region: env("AWS_REGION"),
+            ...(env("AWS_ENDPOINT") ? { endpoint: env("AWS_ENDPOINT") } : {}),
+            forcePathStyle: env.bool("AWS_FORCE_PATH_STYLE", false),
+            params: {
+              ACL: env("AWS_ACL") || undefined,
+              Bucket: env("AWS_BUCKET"),
+            },
+          },
+        },
+        actionOptions: {
+          upload: {},
+          uploadStream: {},
+          delete: {},
+        },
+      }
+    : {};
+
   return {
     tinymce: {
       enabled: true,
@@ -50,28 +87,11 @@ export default ({ env }) => {
         },
       },
     },
-
-    /*    upload: {
-     config: {
-        provider: "aws-s3",
-        providerOptions: {
-          accessKeyId: env("AWS_ACCESS_KEY_ID"),
-          secretAccessKey: env("AWS_SECRET_ACCESS_KEY"),
-          region: env("AWS_REGION"),
-          params: {
-            Bucket: env("AWS_BUCKET"),
-            ACL: null,
-          },
-        },
-
-        actionOptions: {
-          upload: {},
-          uploadStream: {},
-          delete: {},
-        },
-
-        baseUrl: `https://${env("AWS_BUCKET")}.s3.${env("AWS_REGION")}.amazonaws.com`,
+    upload: {
+      config: {
+        ...uploadConfig,
+        sizeLimit: uploadMaxFileSizeMb * 1024 * 1024,
       },
-    },*/
+    },
   };
 };
