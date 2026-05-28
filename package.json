@@ -15,6 +15,7 @@
     "upgrade:dry": "npx @strapi/upgrade latest --dry"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "3.995.0",
     "@ckeditor/strapi-plugin-ckeditor": "^1.1.2",
     "@sklinet/strapi-plugin-tinymce": "^1.1.8",
     "@strapi/plugin-cloud": "5.38.0",

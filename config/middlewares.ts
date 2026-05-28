@@ -1,18 +1,8 @@
-// config/middlewares.ts
-export default [
-  // Required core middlewares (must come first)
-  'strapi::errors', // <-- This was missing and caused your error
-  'strapi::security',
-  'strapi::cors',
-  'strapi::poweredBy',
-  'strapi::logger',
-  'strapi::query',
-  'strapi::body',
-  'strapi::session',
-  'strapi::favicon',
-  'strapi::public',
+import type { Core } from '@strapi/strapi';
 
-  // Custom security policy (can be placed anywhere after 'strapi::security')
+const config: Core.Config.Middlewares = [
+  'strapi::logger',
+  'strapi::errors',
   {
     name: 'strapi::security',
     config: {
@@ -24,49 +14,65 @@ export default [
             "'unsafe-inline'",
             "'unsafe-eval'",
             '*.tinymce.com',
-            '*.tiny.cloud'
+            '*.tiny.cloud',
+            'https:',
           ],
           'connect-src': [
             "'self'",
             '*.tinymce.com',
             '*.tiny.cloud',
             'blob:',
-            '*.strapi.io'
+            'https:',
+            '*.strapi.io',
           ],
           'img-src': [
             "'self'",
-            'data:',
-            'blob:',
             '*.tinymce.com',
             '*.tiny.cloud',
+            'data:',
+            'blob:',
+            'https:',
             'dl.airtable.com',
             'strapi.io',
+            's3.amazonaws.com',
+            'sagar-assets.s3.ap-south-1.amazonaws.com',
             'cdn.jsdelivr.net',
-            's3.amazonaws.com'
+          ],
+          'media-src': [
+            "'self'",
+            'data:',
+            'blob:',
+            'https:',
+            'sagar-assets.s3.ap-south-1.amazonaws.com'
           ],
           'style-src': [
             "'self'",
             "'unsafe-inline'",
             '*.tinymce.com',
-            '*.tiny.cloud'
+            '*.tiny.cloud',
           ],
           'font-src': [
             "'self'",
             'data:',
             '*.tinymce.com',
-            '*.tiny.cloud'
-          ],
-          'media-src': [
-            "'self'",
-            'data:',
-            'blob:'
+            '*.tiny.cloud',
           ],
           'frame-src': [
             "'self'",
-            '*.tinymce.com'
-          ]
-        }
-      }
-    }
-  }
+            '*.tinymce.com',
+          ],
+        },
+        upgradeInsecureRequests: null,
+      },
+    },
+  },
+  'strapi::cors',
+  'strapi::poweredBy',
+  'strapi::query',
+  'strapi::body',
+  'strapi::session',
+  'strapi::favicon',
+  'strapi::public',
 ];
+
+export default config;
